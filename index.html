@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queenco Hotel and Casino - Premier Entertainment Destination</title>
+    <style>
+        :root {
+            --primary-color: #0088cc;
+            --bg-dark: #1a1a1a;
+            --bg-darker: #2a2a2a;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --container-width: min(90%, 1200px);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            text-align: center;
+            padding: clamp(20px, 5vw, 40px);
+            background-color: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            width: var(--container-width);
+            margin: 20px;
+            position: relative;
+        }
+        
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--primary-color);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--text-light);
+            font-size: clamp(2em, 5vw, 2.5em);
+            margin: 20px 0;
+            line-height: 1.2;
+        }
+        
+        .content {
+            text-align: left;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: clamp(15px, 3vw, 25px);
+            background: rgba(40, 40, 40, 0.7);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .content ul {
+            list-style-position: inside;
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .content li {
+            margin: 10px 0;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: clamp(12px, 2vw, 15px) clamp(20px, 3vw, 30px);
+            background-color: rgba(0, 136, 204, 0.9);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        .button:hover {
+            background-color: rgba(0, 102, 153, 0.9);
+            transform: scale(1.05);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(15px, 3vw, 25px);
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background: rgba(40, 40, 40, 0.7);
+            padding: clamp(15px, 3vw, 25px);
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-title {
+            font-size: clamp(1.2em, 3vw, 1.5em);
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .countdown {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--primary-color);
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(40, 40, 40, 0.7);
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .language-switch {
+                position: static;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .button {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-switch">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('zh')">中文</button>
+        </div>
+        
+        <h1 data-lang="title">Queenco Hotel and Casino</h1>
+        <div class="content">
+            <p data-lang="welcome">Welcome to Queenco Hotel and Casino, the premier entertainment destination in Sihanoukville. We offer:</p>
+            <ul>
+                <li data-lang="feature1">Luxury Hotel Accommodation</li>
+                <li data-lang="feature2">World-Class Casino Experience</li>
+                <li data-lang="feature3">TON Blockchain Gaming</li>
+                <li data-lang="feature4">QHC Token Rewards Program</li>
+            </ul>
+            <p data-lang="announcement">We are excited to announce that our casino is now investing in gaming on the <span class="highlight">TON Blockchain</span> through Telegram Mini App, enhancing your entertainment experience.</p>
+            <p data-lang="token">Additionally, we have launched the <span class="highlight">QHC Token</span>, providing players with more gaming and reward opportunities.</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-title" data-lang="gaming">Gaming</div>
+                <p data-lang="gaming-desc">Experience Latest Blockchain Technology</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title" data-lang="token-title">QHC Token</div>
+                <p data-lang="token-desc">Exclusive Rewards Program</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title" data-lang="accommodation">Luxury Stay</div>
+                <p data-lang="accommodation-desc">Comfortable Accommodation Experience</p>
+            </div>
+        </div>
+
+        <div class="countdown" data-lang="countdown">Redirecting to official website in <span id="timer">20</span> seconds</div>
+        <a href="https://t.me/QHCasino808" class="button" data-lang="telegram">Join Telegram Community</a>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Queenco Hotel and Casino",
+                welcome: "Welcome to Queenco Hotel and Casino, the premier entertainment destination in Sihanoukville. We offer:",
+                feature1: "Luxury Hotel Accommodation",
+                feature2: "World-Class Casino Experience",
+                feature3: "TON Blockchain Gaming",
+                feature4: "QHC Token Rewards Program",
+                announcement: "We are excited to announce that our casino is now investing in gaming on the TON Blockchain through Telegram Mini App, enhancing your entertainment experience.",
+                token: "Additionally, we have launched the QHC Token, providing players with more gaming and reward opportunities.",
+                gaming: "Gaming",
+                "gaming-desc": "Experience Latest Blockchain Technology",
+                "token-title": "QHC Token",
+                "token-desc": "Exclusive Rewards Program",
+                accommodation: "Luxury Stay",
+                "accommodation-desc": "Comfortable Accommodation Experience",
+                countdown: "Redirecting to official website in",
+                telegram: "Join Telegram Community"
+            },
+            zh: {
+                title: "Queenco Hotel and Casino",
+                welcome: "欢迎来到 Queenco Hotel and Casino，这里是西哈努克市最顶级的娱乐场所。我们提供：",
+                feature1: "豪华酒店住宿",
+                feature2: "世界级赌场体验",
+                feature3: "TON 区块链博彩游戏",
+                feature4: "QHC 代币奖励计划",
+                announcement: "我们很高兴地宣布，赌场现已开始在 TON 区块链上投资于 Telegram Mini App 的博彩游戏，进一步提升您的娱乐体验。",
+                token: "此外，我们还推出了 QHC 代币，为玩家提供更多的游戏和回馈机会。",
+                gaming: "博彩游戏",
+                "gaming-desc": "体验最新区块链技术",
+                "token-title": "QHC 代币",
+                "token-desc": "专属奖励计划",
+                accommodation: "豪华住宿",
+                "accommodation-desc": "舒适住宿体验",
+                countdown: "即将跳转到官方网站，请稍候",
+                telegram: "加入 Telegram 社群"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        let timeLeft = 20;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = 'https://queencoasia.com';
+            }
+        }, 1000);
+    </script>
+</body>
+</html> 
